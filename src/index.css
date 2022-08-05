@@ -1,0 +1,49 @@
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  body {
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(to right, rgb(83, 105, 118), rgb(41, 46, 73));
+  }
+
+  :root {
+    --header-height: 100px;
+    --aside-width: 100px;
+    --footer-height: 50px;
+}
+
+  .app {
+    display: grid;
+    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-rows:
+        var(--header-height)
+        1fr
+        var(--footer-height);
+    grid-template-areas:
+        "header content"
+        "menu content"
+        "menu footer";
+    min-height: 100vh;
+}
+
+aside.menu-area {
+  grid-area: menu;
+}
+
+header.header {
+    grid-area: header;
+}
+
+main.content {
+  grid-area: content;
+}
+
+footer.footer {
+    grid-area: footer;
+} 
