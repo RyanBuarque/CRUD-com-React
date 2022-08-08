@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import ColapseCard from './ColapseCard'
 
-function Teste(props) {
+function Card(props) {
 
   function iconesPrincipalCard() {
     return (
@@ -44,7 +44,7 @@ function Teste(props) {
 
   return (
     <div>
-      <Teste2 className="card mb-3">
+      <Coment className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4 d-flex flex-column justify-content-center">
             <img src={props.fotoPerfil} alt="Foto do perfil" />
@@ -69,12 +69,12 @@ function Teste(props) {
           </div>
         </div>
         {props.principalCard ? <ColapseCard /> : ''}
-      </Teste2>
+      </Coment>
     </div>
   )
 }
 
-const Teste2 = styled.div`
+const Coment = styled.div`
   max-width: 600px;
 
   img {
@@ -85,4 +85,4 @@ const Teste2 = styled.div`
   }
 `
 
-export default Teste
+export default Card

@@ -6,14 +6,14 @@ import Footer from './components/template/Footer'
 import Header from './components/template/Header'
 import Nav from './components/template/Nav'
 
-function App() {
+function App( chieldreComponent) {
   return (
     <BrowserRouter>
       <div className="app">
-        <Header />
-        <Nav />
+        {/* <Header />
+        <Nav /> */}
         <Rotas />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </BrowserRouter>
   )

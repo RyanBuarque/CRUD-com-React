@@ -2,26 +2,33 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faUser, faSearch, faGear, faArrowRightFromBracket, faArrowRightToBracket  } from '@fortawesome/free-solid-svg-icons'
+import {
+  faHome,
+  faUser,
+  faGear,
+  faArrowRightFromBracket,
+  faArrowRightToBracket,
+  faList
+} from '@fortawesome/free-solid-svg-icons'
 
 function Nav() {
   return (
-    <Aside className="menu-area rounded-pill ms-4 mb-3 p-3 d-flex">
-      <nav className="flex-fill d-flex flex-column bg-warning">
-        <NavLink to="/">
-          <FontAwesomeIcon icon={faArrowRightToBracket}/> Login
+    <Aside className="menu-area">
+      <nav className="d-flex flex-column rounded-pill ms-4 p-3">
+        <NavLink to="/login">
+          <FontAwesomeIcon icon={faArrowRightToBracket} /> Login
         </NavLink>
         <NavLink to="/">
-          <FontAwesomeIcon icon={faSearch}/> Search
-        </NavLink>
-        <NavLink to="/">
-          <FontAwesomeIcon icon={faGear}/> Config
-        </NavLink>
-        <NavLink to="/">
-          <FontAwesomeIcon icon={faHome}/> Home
+          <FontAwesomeIcon icon={faHome} /> Home
         </NavLink>
         <NavLink to="/user">
           <FontAwesomeIcon icon={faUser} /> Perfil
+        </NavLink>
+        <NavLink to="/user">
+          <FontAwesomeIcon icon={faList} /> List
+        </NavLink>
+        <NavLink to="/list">
+          <FontAwesomeIcon icon={faGear} /> Config
         </NavLink>
         <NavLink to="/user">
           <FontAwesomeIcon icon={faArrowRightFromBracket} /> Logout
@@ -32,7 +39,11 @@ function Nav() {
 }
 
 const Aside = styled.aside`
-  background-color: #00adf1;
+  margin-top: 10px;
+  
+  nav {
+    background-color: #00adf1;
+  }
 `
 const NavLink = styled(Link)`
   margin: 10px 0;

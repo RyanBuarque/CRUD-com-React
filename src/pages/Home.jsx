@@ -1,191 +1,73 @@
-import React from 'react'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faHeart,
-  faComment,
-  faAlignJustify,
-} from '@fortawesome/free-solid-svg-icons'
-import userF from '../assets/userF.png'
+import React, { useState } from 'react'
+import Card from '../components/Card'
 import Main from '../components/template/Main'
+import PropsTest from '../PropsTest'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components'
+import List from './List'
+import { addComentario } from '../store/comentarios'
+import { useDispatch } from 'react-redux'
 
 function Home() {
+  const [form, setForm] = useState({ comentario: '' })
+  const dispatch = useDispatch();
+  function formChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  function onSubmit(e) {
+    e.preventDefault()
+    dispatch(addComentario(form))
+    setForm({ comentario: '' })
+  }
+
   return (
     <Main>
       <div>
-        <div className="display-4">Bem Vindo!</div>
         <hr />
-        <p className="mb-0">
-          Sistema para exemplificar a construção de um cadastro desenvolvido em
-          React!
-        </p>
+        <SeuComent className="bg-danger">
+          <form
+            onSubmit={onSubmit}
+            className="d-flex align-items-center mx-3 flex-fill"
+          >
+            <label htmlFor="seuComentario">
+              <FontAwesomeIcon
+                icon={faPenToSquare}
+                className="fs-5 text-dark p-2"
+              />
+            </label>
+            <textarea
+              className="form-control border-0"
+              id="seuComentario"
+              placeholder="Digite seu comentario aqui"
+              onChange={formChange}
+              name="comentario"
+              value={form.comentario}
+            />
+            <button type="submit" className="btn">
+              <FontAwesomeIcon
+                icon={faPaperPlane}
+                className="fs-5 text-dark p-2"
+              />
+            </button>
+          </form>
+        </SeuComent>
       </div>
 
       <hr />
-
-      <Card className="card mb-3">
-        <div className="row g-0">
-          <div className="col-md-4 d-flex flex-column justify-content-center">
-            <img src={userF} alt="..." />
-          </div>
-          <div className="col-md-8">
-            <div className="card-body text-dark text-start">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div className="d-flex justify-content-between">
-                <p className="card-text m-0">
-                  <small className="text-muted">Last updated 3 mins ago</small>
-                </p>
-                <div className="me-5 d-flex col-3 justify-content-around align-items-center">
-                  <FontAwesomeIcon icon={faHeart} className="text-warning" />
-                  <a
-                    data-bs-toggle="collapse"
-                    href="#collapseExample"
-                    role="button"
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                  >
-                    <FontAwesomeIcon
-                      icon={faComment}
-                      className="text-warning"
-                    />
-                  </a>
-                  <a
-                    data-bs-toggle="collapse"
-                    href="#collapseExample2"
-                    role="button"
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                  >
-                    <FontAwesomeIcon
-                      icon={faAlignJustify}
-                      className="text-warning"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body bg-secondary m-2">
-            <div className="bg-white text-dark">
-              <p>AQUIII</p>
-            </div>
-          </div>
-        </div>
-        <div class="collapse" id="collapseExample2">
-          
-          <div class="card card-body text-dark bg-secondary m-2">
-            <Card className="card mb-3">
-              <div className="row g-0">
-                <div className="col-md-4 d-flex flex-column justify-content-center">
-                  <img src={userF} alt="..." />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body text-dark text-start">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </p>
-                    <div className="d-flex justify-content-between">
-                      <p className="card-text m-0">
-                        <small className="text-muted">
-                          Last updated 3 mins ago
-                        </small>
-                      </p>
-                      <div className="me-5 d-flex col-3 justify-content-around align-items-center">
-                        <FontAwesomeIcon
-                          icon={faHeart}
-                          className="text-warning"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-            <Card className="card mb-3 ">
-              <div className="row g-0">
-                <div className="col-md-4 d-flex flex-column justify-content-center">
-                  <img src={userF} alt="..." />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body text-dark text-start">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </p>
-                    <div className="d-flex justify-content-between">
-                      <p className="card-text m-0">
-                        <small className="text-muted">
-                          Last updated 3 mins ago
-                        </small>
-                      </p>
-                      <div className="me-5 d-flex col-3 justify-content-around align-items-center">
-                        <FontAwesomeIcon
-                          icon={faHeart}
-                          className="text-warning"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-            <Card className="card mb-3 ">
-              <div className="row g-0">
-                <div className="col-md-4 d-flex flex-column justify-content-center">
-                  <img src={userF} alt="..." />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body text-dark text-start">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </p>
-                    <div className="d-flex justify-content-between">
-                      <p className="card-text m-0">
-                        <small className="text-muted">
-                          Last updated 3 mins ago
-                        </small>
-                      </p>
-                      <div className="me-5 d-flex col-3 justify-content-around align-items-center">
-                        <FontAwesomeIcon
-                          icon={faHeart}
-                          className="text-warning"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </Card>
+      <div className="d-flex flex-column align-items-center">
+        <List />
+      </div>
     </Main>
   )
 }
 
-const Card = styled.div`
-  max-width: 600px;
-
-  img {
-    width: 100px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background-color: #00adf1;
+const SeuComent = styled.div`
+  margin-left: 30px;
+  textarea {
+    max-width: 600px;
+    height: 100px;
   }
 `
 

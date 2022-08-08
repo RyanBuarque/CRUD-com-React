@@ -17,7 +17,7 @@
     --aside-width: 100px;
     --footer-height: 50px;
 }
-
+/* 
   .app {
     display: grid;
     grid-template-columns: var(--aside-width) 1fr;
@@ -26,7 +26,7 @@
         1fr
         var(--footer-height);
     grid-template-areas:
-        "header content"
+        "header header"
         "menu content"
         "menu footer";
     min-height: 100vh;
@@ -46,4 +46,4 @@ main.content {
 
 footer.footer {
     grid-area: footer;
-} 
+}  */
