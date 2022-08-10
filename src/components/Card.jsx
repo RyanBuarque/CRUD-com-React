@@ -1,47 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faHeart,
-  faComment,
-  faAlignJustify,
-} from '@fortawesome/free-solid-svg-icons'
-import ColapseCard from './ColapseCard'
+
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 function Card(props) {
-
-  function iconesPrincipalCard() {
-    return (
-      <>
-      
-      <a
-                    data-bs-toggle="collapse"
-                    href="#collapseExample"
-                    role="button"
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                  >
-                    <FontAwesomeIcon
-                      icon={faComment}
-                      className="text-warning"
-                    />
-                  </a>
-                  <a
-                    data-bs-toggle="collapse"
-                    href="#collapseExample2"
-                    role="button"
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                  >
-                    <FontAwesomeIcon
-                      icon={faAlignJustify}
-                      className="text-warning"
-                    />
-                  </a>
-      </>
-    )
-  }
-
   return (
     <div>
       <Coment className="card mb-3">
@@ -52,23 +15,18 @@ function Card(props) {
           <div className="col-md-8">
             <div className="card-body text-dark text-start">
               <h5 className="card-title">{props.title}</h5>
-              <p className="card-text">
-              {props.conteudo}
-              </p>
+              <p className="card-text">{props.conteudo}</p>
               <div className="d-flex justify-content-between">
                 <p className="card-text m-0">
                   <small className="text-muted">{props.time}</small>
                 </p>
                 <div className="me-5 d-flex col-3 justify-content-around align-items-center">
                   <FontAwesomeIcon icon={faHeart} className="text-warning" />
-                  
-                  {props.principalCard ? iconesPrincipalCard() : ''}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {props.principalCard ? <ColapseCard /> : ''}
       </Coment>
     </div>
   )

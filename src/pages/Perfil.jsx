@@ -1,6 +1,7 @@
 import React from 'react'
-import Main from '../components/template/Main'
 import styled from 'styled-components'
+
+import Main from '../components/template/Main'
 import userM from '../assets/userM.png'
 import useAuth from '../hooks/useAuth'
 
@@ -16,7 +17,7 @@ function Perfil() {
           </div>
           <div className="col-md-8 d-flex align-items-center">
             <div className="bg-white rounded p-5 card-body text-dark text-start">
-            <legend className='fs-3'>Detalhes: </legend>
+              <legend className="fs-3">Detalhes: </legend>
               <h5 className="fs-4">
                 <span className="fs-5 text-muted me-3">Name:</span>
                 {user.email}

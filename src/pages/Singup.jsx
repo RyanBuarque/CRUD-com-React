@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import Input from '../components/Input'
 import { Link, useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import Input from '../components/Input'
 import useAuth from '../hooks/useAuth'
 import Main from '../components/template/Main'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faKey, faAt, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 function Signup() {

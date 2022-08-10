@@ -1,22 +1,23 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import Header from './template/Header'
 import Nav from './template/Nav'
-import styled from 'styled-components'
 import Footer from './template/Footer'
 
 function Wrapper(props) {
   const { children } = props
   return (
-    <Arroz>
+    <Grid>
       <Header />
       <Nav />
       {children}
       <Footer />
-    </Arroz>
+    </Grid>
   )
 }
 
-const Arroz = styled.div`
+const Grid = styled.div`
 
     display: grid;
     grid-template-columns: var(--aside-width) 1fr;

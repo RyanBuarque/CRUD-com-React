@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
+import { faPenToSquare, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { addComentario } from '../store/comentarios'
 import Main from '../components/template/Main'
 import List from './List'
-import { addComentario } from '../store/comentarios'
 import useAuth from '../hooks/useAuth'
 import userM from '../assets/userM.png'
 
 function Home() {
   const [form, setForm] = useState({ comentario: '' })
-  const { user  } = useAuth();
+  const { user } = useAuth()
   const [cardC, setCardC] = useState({
     fotoPerfil: userM,
     title: user.email,
@@ -21,8 +20,8 @@ function Home() {
     time: 'Now',
     principalCard: true,
   })
-  
-  const dispatch = useDispatch();
+
+  const dispatch = useDispatch()
 
   function formChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -60,10 +59,7 @@ function Home() {
               value={form.comentario}
             />
             <Button type="submit" className="btn border-0">
-              <FontAwesomeIcon
-                icon={faPaperPlane}
-                className="fs-5 p-2"
-              />
+              <FontAwesomeIcon icon={faPaperPlane} className="fs-5 p-2" />
             </Button>
           </form>
         </SeuComent>
@@ -79,7 +75,7 @@ function Home() {
 
 const SeuComent = styled.div`
   width: 100%;
-  
+
   form {
     margin: 0 auto;
   }
@@ -91,15 +87,15 @@ const SeuComent = styled.div`
 `
 
 const Button = styled.button`
-margin: 10px 0;
-text-decoration: none;
-color: black;
+  margin: 10px 0;
+  text-decoration: none;
+  color: black;
 
-:hover {
-  color: white;
-  transition: 0.5s;
-  filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.5));
-}
+  :hover {
+    color: white;
+    transition: 0.5s;
+    filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.5));
+  }
 `
 
 export default Home

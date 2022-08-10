@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter } from 'react-router-dom'
-import { AuthProvider } from './contexts/auth'
 
+import { AuthProvider } from './contexts/auth'
 import Rotas from './Routes'
 
 function App() {

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Main from '../components/template/Main'
 import Input from '../components/Input'
-import { Link, useNavigate } from 'react-router-dom'
 import useAuth from '../hooks/useAuth'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faKey, faUser, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 function Login() {

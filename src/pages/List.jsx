@@ -1,16 +1,12 @@
 import React from 'react'
-import Card from '../components/Card'
 import { useSelector } from 'react-redux'
 
+import Card from '../components/Card'
+
 function List() {
+  const comentarios = useSelector((state) => state.comentarios)
 
-    const comentarios = useSelector((state) => state.comentarios )
-
-  return (
-    <div>
-      {comentarios.map(Card)}
-    </div>
-  )
+  return <div>{comentarios.map(Card)}</div>
 }
 
 export default List
