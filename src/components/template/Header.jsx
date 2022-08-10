@@ -8,7 +8,7 @@ function Header() {
   return (
     <Title className="header">
         <Logo />
-        <Search />
+        {/* <Search /> */}
     </Title>
   )
 }

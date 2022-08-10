@@ -1,40 +1,54 @@
 import React, { useState } from 'react'
-import Card from '../components/Card'
-import Main from '../components/template/Main'
-import PropsTest from '../PropsTest'
+import { useDispatch } from 'react-redux'
+import styled from 'styled-components'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
-import styled from 'styled-components'
+
+import Main from '../components/template/Main'
 import List from './List'
 import { addComentario } from '../store/comentarios'
-import { useDispatch } from 'react-redux'
+import useAuth from '../hooks/useAuth'
+import userM from '../assets/userM.png'
 
 function Home() {
   const [form, setForm] = useState({ comentario: '' })
+  const { user  } = useAuth();
+  const [cardC, setCardC] = useState({
+    fotoPerfil: userM,
+    title: user.email,
+    conteudo: '',
+    time: 'Now',
+    principalCard: true,
+  })
+  
   const dispatch = useDispatch();
+
   function formChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
+    cardC.conteudo = form.comentario
+    setCardC(cardC)
   }
 
-  function onSubmit(e) {
+  function onSubmitComentario(e) {
     e.preventDefault()
-    dispatch(addComentario(form))
+    dispatch(addComentario(cardC))
     setForm({ comentario: '' })
   }
 
   return (
     <Main>
-      <div>
+      <div className="d-flex justify-content-center">
         <hr />
-        <SeuComent className="bg-danger">
+        <SeuComent>
           <form
-            onSubmit={onSubmit}
-            className="d-flex align-items-center mx-3 flex-fill"
+            onSubmit={onSubmitComentario}
+            className="d-flex align-items-center justify-content-center"
           >
             <label htmlFor="seuComentario">
               <FontAwesomeIcon
                 icon={faPenToSquare}
-                className="fs-5 text-dark p-2"
+                className="fs-5 me-4 text-dark p-2"
               />
             </label>
             <textarea
@@ -45,12 +59,12 @@ function Home() {
               name="comentario"
               value={form.comentario}
             />
-            <button type="submit" className="btn">
+            <Button type="submit" className="btn border-0">
               <FontAwesomeIcon
                 icon={faPaperPlane}
-                className="fs-5 text-dark p-2"
+                className="fs-5 p-2"
               />
-            </button>
+            </Button>
           </form>
         </SeuComent>
       </div>
@@ -64,11 +78,28 @@ function Home() {
 }
 
 const SeuComent = styled.div`
-  margin-left: 30px;
+  width: 100%;
+  
+  form {
+    margin: 0 auto;
+  }
+
   textarea {
     max-width: 600px;
     height: 100px;
   }
+`
+
+const Button = styled.button`
+margin: 10px 0;
+text-decoration: none;
+color: black;
+
+:hover {
+  color: white;
+  transition: 0.5s;
+  filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.5));
+}
 `
 
 export default Home

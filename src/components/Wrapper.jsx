@@ -25,7 +25,7 @@ const Arroz = styled.div`
       1fr
       var(--footer-height);
     grid-template-areas:
-      'header header'
+      'header content'
       'menu content'
       'menu footer';
     min-height: 100vh;

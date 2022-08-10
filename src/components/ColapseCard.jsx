@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from './Card'
-import PropsTest from '../PropsTest'
 
 function ColapseCard() {
 
@@ -16,9 +15,9 @@ function ColapseCard() {
         <div className="collapse " id="collapseExample2">
             <div className="card card-body text-dark bg-secondary m-2">
 
-            <Card {...PropsTest(false)}/>
-            <Card {...PropsTest(false)}/>
-            <Card {...PropsTest(false)}/>
+            <Card />
+            {/* <Card {...PropsTest(false)}/> */}
+
             </div>
         </div>
     </div>

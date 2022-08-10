@@ -1,19 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter } from 'react-router-dom'
+import { AuthProvider } from './contexts/auth'
 
 import Rotas from './Routes'
-import Footer from './components/template/Footer'
-import Header from './components/template/Header'
-import Nav from './components/template/Nav'
 
-function App( chieldreComponent) {
+function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        {/* <Header />
-        <Nav /> */}
-        <Rotas />
-        {/* <Footer /> */}
+        <AuthProvider>
+          <Rotas />
+        </AuthProvider>
       </div>
     </BrowserRouter>
   )

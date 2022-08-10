@@ -6,7 +6,7 @@ import logo from '../../assets/logo.jpg'
 function Logo() {
   return (
     <aside className="logo">
-        <Link to="/">
+        <Link to="/home">
             <Img src={logo} alt="logo" />
         </Link>
     </aside>
