@@ -64,17 +64,19 @@ function Login() {
           <label>{error}</label>
           <div>
             <button
-              className="btn d-flex align-items-center"
+              className="btn btn-primary d-flex align-items-center"
               onClick={handleLogin}
             >
               <FontAwesomeIcon icon={faPaperPlane} className="me-2" /> Entrar
             </button>
           </div>
+          <div className="d-flex align-items-center mt-3">
+            <label>Não tem uma conta?</label>
+            <NavLink to="/signup" className="ms-4 btn btn-primary">
+              &nbsp;Registre-se
+            </NavLink>
+          </div>
         </form>
-        <label>
-          Não tem uma conta?
-          <NavLink to="/signup">&nbsp;Registre-se</NavLink>
-        </label>
       </Main>
     </FormLogin>
   )
@@ -89,25 +91,22 @@ const FormLogin = styled.div`
 
   button {
     margin: 10px 0;
-    text-decoration: none;
-    color: black;
 
     :hover {
       color: white;
-      transition: 0.5s;
+      background-color: blue;
+      transition: 0.2s;
       filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.5));
     }
   }
 `
 
 const NavLink = styled(Link)`
-  margin: 10px 0;
-  text-decoration: none;
+  padding: 6px;
   font-weight: 400;
-  color: black;
 
   :hover {
-    color: white;
+    background-color: blue;
     transition: 0.2s;
     filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.5));
   }

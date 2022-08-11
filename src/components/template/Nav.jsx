@@ -25,10 +25,10 @@ function Nav() {
         <NavLink to="/user">
           <FontAwesomeIcon icon={faUser} /> Perfil
         </NavLink>
-        <NavLink to="/list">
+        <NavLink to="/#" className="text-danger">
           <FontAwesomeIcon icon={faList} /> List
         </NavLink>
-        <NavLink to="/list">
+        <NavLink to="/#" className="text-danger">
           <FontAwesomeIcon icon={faGear} /> Config
         </NavLink>
         <Logout onClick={() => [signout(), navigate('/')]}>

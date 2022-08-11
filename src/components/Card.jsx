@@ -39,7 +39,7 @@ const Coment = styled.div`
     width: 100px;
     margin: 0 auto;
     border-radius: 50%;
-    background-color: #00adf1;
+    background-color: white;
   }
 `
 

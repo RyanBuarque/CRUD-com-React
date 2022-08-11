@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Main from '../components/template/Main'
-import userM from '../assets/userM.png'
+import perfil from '../assets/perfil.png'
 import useAuth from '../hooks/useAuth'
 
 function Perfil() {
@@ -13,7 +13,7 @@ function Perfil() {
       <Coment className="d-flex justify-content-center">
         <div className="row g-0 flex-fill">
           <div className="col-md-4 d-flex flex-column justify-content-center">
-            <img src={userM} alt="Foto do perfil" />
+            <img src={perfil} alt="Foto do perfil" />
           </div>
           <div className="col-md-8 d-flex align-items-center">
             <div className="bg-white rounded p-5 card-body text-dark text-start">
@@ -42,7 +42,7 @@ const Coment = styled.div`
     width: 70%;
     margin: 0 auto;
     border-radius: 50%;
-    background-color: #00adf1;
+    background-color: white;
   }
 `
 

@@ -10,19 +10,19 @@ import { faKey, faAt, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 function Signup() {
   const [email, setEmail] = useState('')
-  const [emailConf, setEmailConf] = useState('')
+  const [senhaConf, setsenhaConf] = useState('')
   const [senha, setSenha] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
-  const { signup } = useAuth()
+  const { signup, signin } = useAuth()
 
   function handleSignup() {
-    if (!email | !emailConf | !senha) {
+    if (!email | !senhaConf | !senha) {
       setError('Preencha todos os campos')
       return
-    } else if (email !== emailConf) {
-      setError('Os e-mails não são iguais')
+    } else if (senha !== senhaConf) {
+      setError('As senhas não são iguais')
       return
     }
 
@@ -34,7 +34,15 @@ function Signup() {
     }
 
     alert('Usuário cadatrado com sucesso!')
-    navigate('/')
+
+    const res2 = signin(email, senha)
+
+    if (res2) {
+      setError(res2)
+      return
+    }
+
+    navigate('/home')
   }
 
   return (
@@ -57,18 +65,6 @@ function Signup() {
             </div>
             <div className="d-flex align-items-center my-3">
               <Input
-                type="email"
-                placeholder="Confirme seu E-mail"
-                value={emailConf}
-                className="form-control"
-                onChange={(e) => [setEmailConf(e.target.value), setError('')]}
-              />
-              <label htmlFor="nome" className="form-label">
-                <FontAwesomeIcon icon={faAt} className="mt-3 ms-2 fs-5" />
-              </label>
-            </div>
-            <div className="d-flex align-items-center my-3">
-              <Input
                 type="password"
                 placeholder="Digite sua Senha"
                 value={senha}
@@ -79,22 +75,36 @@ function Signup() {
                 <FontAwesomeIcon icon={faKey} className="mt-3 ms-2 fs-5" />
               </label>
             </div>
+            <div className="d-flex align-items-center my-3">
+              <Input
+                type="password"
+                placeholder="Confirme sua senha"
+                value={senhaConf}
+                className="form-control"
+                onChange={(e) => [setsenhaConf(e.target.value), setError('')]}
+              />
+              <label htmlFor="nome" className="form-label">
+                <FontAwesomeIcon icon={faKey} className="mt-3 ms-2 fs-5" />
+              </label>
+            </div>
             <label>{error}</label>
             <div>
               <button
-                className="btn d-flex align-items-center mx-auto"
+                className="btn d-flex btn-primary align-items-center mx-auto"
                 onClick={handleSignup}
               >
                 <FontAwesomeIcon icon={faPaperPlane} className="me-2" />{' '}
-                Inscrever-se{' '}
+                Inscrever-se
               </button>
             </div>
           </div>
+          <div className="d-flex align-items-center mt-3">
+            <label>Já tem uma conta?</label>
+            <NavLink to="/" className="ms-4 btn btn-primary">
+              &nbsp;Registre-se
+            </NavLink>
+          </div>
         </form>
-        <label>
-          Já tem uma conta?
-          <NavLink to="/">&nbsp;Entre</NavLink>
-        </label>
       </Main>
     </FormLogin>
   )
@@ -109,25 +119,21 @@ const FormLogin = styled.div`
 
   button {
     margin: 10px 0;
-    text-decoration: none;
-    color: black;
 
     :hover {
-      color: white;
-      transition: 0.5s;
+      background-color: blue;
+      transition: 0.2s;
       filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.5));
     }
   }
 `
 
 const NavLink = styled(Link)`
-  margin: 10px 0;
-  text-decoration: none;
+  padding: 6px;
   font-weight: 400;
-  color: black;
 
   :hover {
-    color: white;
+    background-color: blue;
     transition: 0.2s;
     filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.5));
   }
