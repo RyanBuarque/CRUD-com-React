@@ -61,7 +61,7 @@ function Login() {
               <FontAwesomeIcon icon={faKey} className="mt-3 ms-2 fs-5" />
             </label>
           </div>
-          <label>{error}</label>
+          <label className="text-warning">{error}</label>
           <div>
             <button
               className="btn btn-primary d-flex align-items-center"
