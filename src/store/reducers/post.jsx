@@ -42,7 +42,7 @@ function reducer(state = INITIAL_STATE, action) {
     }
   }
   if (action.type === 'ADD_REMOVE') {
-    const newState = state.postList.filter((object) => object.id != action.post)
+    const newState = state.postList.filter((object) => object.id !== action.post)
     return {
       lastIdInserted: newId,
       postList: newState 

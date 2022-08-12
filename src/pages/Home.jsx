@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,14 +14,6 @@ function Home() {
   const dispatch = useDispatch()
   const [form, setForm] = useState({ comentario: '' })
   const { user } = useAuth()
-  const inicialState = {
-    fotoPerfil: perfil,
-    title: user.email,
-    conteudo: '',
-    time: 'Now',
-    principalCard: true,
-  }
-  const [cardC, setCardC] = useState(inicialState)
 
   function formChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -32,11 +24,16 @@ function Home() {
     if (!form.comentario) {
       return alert('Seu comentario está vazio, digite algo')
     }
-    cardC.conteudo = form.comentario
-    setCardC(cardC)
-    dispatch(addPost(cardC))
+
+    const post = {
+      fotoPerfil: perfil,
+      title: user.email,
+      conteudo: form.comentario,
+      time: 'Now',
+      principalCard: true,
+    }
     setForm({ comentario: '' })
-    setCardC(inicialState)
+    dispatch(addPost(post))
     return
   }
 
@@ -83,6 +80,12 @@ const SeuComent = styled.div`
 
     label {
       padding: 0 20px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    label {
+      display: none;
     }
   }
 

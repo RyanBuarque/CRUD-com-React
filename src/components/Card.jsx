@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -7,9 +7,10 @@ import { removePost } from '../store/reducers/post'
 import { useDispatch } from 'react-redux'
 import useAuth from '../hooks/useAuth'
 
+
 function Card(props) {
   const dispatch = useDispatch()
-  // const { user } = useAuth()
+  const { user } = useAuth()
 
   function remove(e) {
     e.preventDefault()
@@ -18,8 +19,7 @@ function Card(props) {
   }
 
   return (
-    <div key={`card-${props.id}`}>
-      <Coment className="card mb-3">
+      <Coment className="card mb-3 bg-danger">
         <div className="row g-0">
           <div className="col-md-4 d-flex flex-column justify-content-center">
             <img src={props.fotoPerfil} alt="Foto do perfil" />
@@ -37,7 +37,7 @@ function Card(props) {
                     <FontAwesomeIcon icon={faHeart} className="text-warning" />
                     <span className="ms-2">{props.countLikes}</span>
                   </button>
-                  {true ? (
+                  {user.email === props.title ? (
                     <button className="btn border-0" onClick={remove}>
                       <FontAwesomeIcon
                         icon={faTrashCan}
@@ -53,24 +53,19 @@ function Card(props) {
           </div>
         </div>
       </Coment>
-    </div>
   )
 }
 
 const Coment = styled.div`
-  max-width: 600px;
-  min-width: 600px;
-
+  @media (min-width: 768px) {
+    max-width: 600px;
+    min-width: 600px;
+  }
   img {
     width: 100px;
     margin: 0 auto;
     border-radius: 50%;
     background-color: white;
-  }
-
-  @media (max-width: 800px) {
-    color: red !important;
-
   }
 `
 
