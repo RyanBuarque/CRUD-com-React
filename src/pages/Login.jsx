@@ -19,7 +19,7 @@ function Login() {
   function handleLogin() {
     if (!email | !senha) {
       setError('Preencha todos os campos')
-      return
+      return 
     }
 
     const res = signin(email, senha)
@@ -35,7 +35,7 @@ function Login() {
   return (
     <FormLogin className="d-flex justify-content-center align-items-center">
       <Main color="secondary">
-        <form className="d-flex flex-column align-items-center p-4">
+        <div className="d-flex flex-column align-items-center p-4">
           <legend>Login</legend>
           <div className="d-flex align-items-center my-3">
             <Input
@@ -43,7 +43,7 @@ function Login() {
               placeholder="Digite seu E-mail"
               value={email}
               className="form-control"
-              onChange={(e) => [setEmail(e.target.value), setError('')]}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="nome" className="form-label">
               <FontAwesomeIcon icon={faUser} className="mt-3 ms-2 fs-5" />
@@ -55,7 +55,7 @@ function Login() {
               placeholder="Digite sua Senha"
               value={senha}
               className="form-control"
-              onChange={(e) => [setSenha(e.target.value), setError('')]}
+              onChange={(e) => setSenha(e.target.value)}
             />
             <label htmlFor="senha" className="form-label">
               <FontAwesomeIcon icon={faKey} className="mt-3 ms-2 fs-5" />
@@ -76,7 +76,7 @@ function Login() {
               &nbsp;Registre-se
             </NavLink>
           </div>
-        </form>
+        </div>
       </Main>
     </FormLogin>
   )

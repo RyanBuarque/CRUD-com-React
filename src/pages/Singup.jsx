@@ -48,7 +48,7 @@ function Signup() {
   return (
     <FormLogin className="d-flex justify-content-center align-items-center">
       <Main color="secondary">
-        <form className="d-flex flex-column align-items-center p-4">
+        <div className="d-flex flex-column align-items-center p-4">
           <legend>Cadastro</legend>
           <div>
             <div className="d-flex align-items-center my-3">
@@ -57,7 +57,7 @@ function Signup() {
                 placeholder="Digite seu E-mail"
                 value={email}
                 className="form-control"
-                onChange={(e) => [setEmail(e.target.value), setError('')]}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <label htmlFor="nome" className="form-label">
                 <FontAwesomeIcon icon={faAt} className="mt-3 ms-2 fs-5" />
@@ -69,7 +69,7 @@ function Signup() {
                 placeholder="Digite sua Senha"
                 value={senha}
                 className="form-control"
-                onChange={(e) => [setSenha(e.target.value), setError('')]}
+                onChange={(e) => setSenha(e.target.value)}
               />
               <label htmlFor="senha" className="form-label">
                 <FontAwesomeIcon icon={faKey} className="mt-3 ms-2 fs-5" />
@@ -104,7 +104,7 @@ function Signup() {
               &nbsp;Login
             </NavLink>
           </div>
-        </form>
+        </div>
       </Main>
     </FormLogin>
   )
