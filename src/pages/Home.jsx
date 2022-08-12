@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faPenToSquare, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
-import { addComentario } from '../store/comentarios'
+import { addPost } from '../store/reducers/post'
 import Main from '../components/template/Main'
 import List from '../components/List'
 import useAuth from '../hooks/useAuth'
@@ -29,9 +29,12 @@ function Home() {
 
   function onSubmitComentario(e) {
     e.preventDefault()
+    if (!form.comentario) {
+      return alert('Seu comentario está vazio, digite algo')
+    }
     cardC.conteudo = form.comentario
     setCardC(cardC)
-    dispatch(addComentario(cardC))
+    dispatch(addPost(cardC))
     setForm({ comentario: '' })
     setCardC(inicialState)
     return
@@ -47,10 +50,7 @@ function Home() {
             className="d-flex align-items-center justify-content-center"
           >
             <label htmlFor="seuComentario">
-              <FontAwesomeIcon
-                icon={faPenToSquare}
-                className="fs-5"
-              />
+              <FontAwesomeIcon icon={faPenToSquare} className="fs-5" />
             </label>
             <textarea
               className="form-control mx-4 border-0"
@@ -93,7 +93,6 @@ const SeuComent = styled.div`
 `
 
 const Button = styled.button`
-
   :hover {
     background-color: blue;
     transition: 0.2s;

@@ -101,7 +101,7 @@ function Signup() {
           <div className="d-flex align-items-center mt-3">
             <label>Já tem uma conta?</label>
             <NavLink to="/" className="ms-4 btn btn-primary">
-              &nbsp;Registre-se
+              &nbsp;Login
             </NavLink>
           </div>
         </form>

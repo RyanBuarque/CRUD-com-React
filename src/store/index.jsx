@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import comentariosReduce from './comentarios'
+import postReduce from './reducers/post'
 
 export default configureStore({
   reducer: {
-    comentarios: comentariosReduce,
+    postsStruct: postReduce
   },
 })

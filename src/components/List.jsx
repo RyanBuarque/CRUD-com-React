@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux'
 import Card from './Card'
 
 function List() {
-  const comentarios = useSelector((state) => state.comentarios)
+  const posts = useSelector((state) => state.postsStruct.postList)
 
-  return <div>{comentarios.map(Card)}</div>
+  return <>{posts.map(Card)}</>
 }
 
 export default List
