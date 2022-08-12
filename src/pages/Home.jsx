@@ -29,8 +29,6 @@ function Home() {
       fotoPerfil: perfil,
       title: user.email,
       conteudo: form.comentario,
-      time: 'Now',
-      principalCard: true,
     }
     setForm({ comentario: '' })
     dispatch(addPost(post))
@@ -38,7 +36,7 @@ function Home() {
   }
 
   return (
-    <Main>
+    <Main >
       <div className="d-flex justify-content-center">
         <hr />
         <SeuComent>

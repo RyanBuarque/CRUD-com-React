@@ -5,7 +5,7 @@ function Main(props) {
   return (
     <React.Fragment>
       <MainD className="content ms-5 ">
-        <div className="bg-secondary p-2 m-2 rounded-5">
+        <div className={`bg-${props.color} p-2 m-2 rounded-5`}>
           {props.children}
         </div>
       </MainD>

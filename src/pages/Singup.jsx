@@ -47,7 +47,7 @@ function Signup() {
 
   return (
     <FormLogin className="d-flex justify-content-center align-items-center">
-      <Main>
+      <Main color="secondary">
         <form className="d-flex flex-column align-items-center p-4">
           <legend>Cadastro</legend>
           <div>

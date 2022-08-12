@@ -7,9 +7,7 @@ const INITIAL_STATE = {
       id: 3,
       fotoPerfil: `${perfil}`,
       title: 'admin@dev',
-      conteudo: `Opa! Tudo bem, {user}? seja bem-vindo(a) a Form.Dev. É um prazer recebê-lo(a) aqui`,
-      time: 'Now',
-      principalCard: false,
+      conteudo: `Opa! Tudo bem, user? seja bem-vindo(a) a Form.Dev. É um prazer recebê-lo(a) aqui`,
     },
     {
       id: 2,
@@ -17,8 +15,6 @@ const INITIAL_STATE = {
       title: 'admin@dev',
       conteudo:
         'Esperamos ansiosamente pelos seus comentarios e contribuição para a comunidade, ajudando-o e sendo ajudado',
-      time: 'Now',
-      principalCard: false,
     },
     {
       id: 1,
@@ -26,8 +22,6 @@ const INITIAL_STATE = {
       title: 'admin@dev',
       conteudo:
         'lembre-se respeito é primordial em nosso site, trate todos com respeito :)',
-      time: 'Now',
-      principalCard: true,
     },
   ],
 }

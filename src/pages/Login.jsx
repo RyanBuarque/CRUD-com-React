@@ -34,7 +34,7 @@ function Login() {
 
   return (
     <FormLogin className="d-flex justify-content-center align-items-center">
-      <Main>
+      <Main color="secondary">
         <form className="d-flex flex-column align-items-center p-4">
           <legend>Login</legend>
           <div className="d-flex align-items-center my-3">
